@@ -1,0 +1,32 @@
+body, html{
+    width: 100%;
+    height: 100%;
+}
+
+.clearfix{
+    clear:both;
+}
+
+body{
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+}
+
+/* h1 properties */
+h1 {
+  font-size: px;
+  font-weight: normal;
+  color: #0f0f0f; /* Golden */
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+footer{
+        background-color: black;
+        width: 100%;
+        position: fixed; 
+        bottom: 0px;
+}
+
+/* LOGIN START */
