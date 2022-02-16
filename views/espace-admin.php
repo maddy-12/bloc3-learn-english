@@ -6,16 +6,22 @@ include('header.php');
     <section>
         <form method="POST" action="?action=create">
             <div class="form-group row py-2">
-                <label for="name" class="col-sm-2 col-form-label">Titre du cours</label>
+                <label for="title" class="col-sm-2 col-form-label">Titre du cours</label>
                 <div class="col-sm-10">
-                    <input name="name" type="text" class="form-control" id="name" placeholder="Titre du cours">
+                    <input name="title" type="text" class="form-control" id="title" placeholder="Titre du cours">
+                </div>
+            </div>
+            <div class="form-group row py-2">
+                <label for="description" class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                    <textarea name="description" class="form-control" id="description" placeholder="écrivez votre cours"></textarea>
                 </div>
             </div>
 
             <div class="form-group row py-2">
-                <label for="lesson" class="col-sm-2 col-form-label">lesson</label>
+                <label for="content" class="col-sm-2 col-form-label">Contenu</label>
                 <div class="col-sm-10">
-                    <textarea name="lesson" class="form-control" id="lesson" placeholder="écrivez votre cours"></textarea>
+                    <textarea name="content" class="form-control" id="content" placeholder="écrivez votre cours"></textarea>
                 </div>
             </div>
 
@@ -29,26 +35,24 @@ include('header.php');
         <div class="row d-flex justify-content-center">
             <?php
             if (!empty($lessons)) {
-                while ($lesson = $lessons->fetch()) {
-            ?>
-
-                    <div class="col-3 mx-4">
-                        <!-- Cartes de recettes -->
-                        <div class="card" style="width: 18rem;">
-                            <div class="text-center">
-                                <h5 class="card-title"> <?= $lesson['name']; ?></h5>
-                                <a href="index.php?action=lessonDetail&amp;id=<?= $lesson['id'] ?>" class="btn btn-primary btn-card ">Voir</a>
-                                <a href="index.php?action=adminUpdatelesson&amp;id=<?= $lesson['id'] ?>" class="btn btn-primary btn-card ">Modifier</a>
-                                <a href="index.php?action=deletelesson&amp;id=<?= $lesson['id'] ?>" class="btn btn-primary btn-card ">Supprimer</a>
+                foreach ($lessons as $lesson) { ?>
+                    <div class="row my-5">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= utf8_encode($lesson['title']) ?></h5>
+                                    <p class="card-text"><?= utf8_encode($lesson['description']) ?></p>
+                                    <a href="index.php?action=lessonDetail&amp;id=<?= $lesson['cours_id'] ?>" class="btn btn-primary">Voir la leçon</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                <?php
-                }
-                $lessons->closeCursor();
+                <?php }
             } else {
                 ?>
-                <p>Vous n'avez pas encore créer des cours </p>
+                <div class="text-center">
+                    <p class="alert alert-warning">Vous n'avez pas encore créer des cours </p>
+                </div>
             <?php
             }
 
