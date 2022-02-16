@@ -1,5 +1,5 @@
 <?php
-
+include "api-rest/bdd.php";
 //Get a post by its ID
 function GetOnePostFromId($id)
 {
@@ -25,7 +25,7 @@ function GetAllPosts()
 
 //Create new post
 
-function CreateNewPost($title, $content)
+function CreateNewLesson($title, $content)
 {
     try {
         $con = getDBConnexion();
@@ -39,7 +39,7 @@ function CreateNewPost($title, $content)
 }
 
 //Create new post
-function UpdatePost($id, $title, $content)
+function UpdateLesson($id, $title, $content)
 {
     try {
         $con = getDBConnexion();
