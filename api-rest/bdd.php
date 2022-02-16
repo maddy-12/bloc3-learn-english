@@ -5,7 +5,7 @@ function getDBConnexion()
     try {
         // Connexion à la base de données
         $host = "localhost";
-        $db_name = "leanenglish";
+        $db_name = "learnenglish";
         $username = "root";
         $password = "";
 
