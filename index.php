@@ -1,2 +1,2 @@
 <?php
-include('controllers/controller.php');
+include_once('controllers/controller.php');

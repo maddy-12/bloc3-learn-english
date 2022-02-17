@@ -1,12 +1,12 @@
 <?php
-include "api-rest/bdd.php";
+include_once "api-rest/bdd.php";
 //Get a post by its ID
 function GetOnePostFromId($id)
 {
     $con = getDBConnexion();
-    $req = "SELECT * from cours where cours_id = '$id' ";
-    $res =  $con->query($req);
-    $lesson_card = $res->fetchAll();
+    $response = "SELECT * from cours where cours_id = '$id' ";
+    $response =  $con->query($response);
+    $lesson_card = $response->fetchAll();
     if (!empty($lesson_card)) {
         return $lesson_card[0];
     } else {
@@ -15,79 +15,61 @@ function GetOnePostFromId($id)
     }
 }
 //Get all the posts
-function GetAllPosts()
+function GetAllLessons()
 {
     $con = getDBConnexion();
-    $req = "SELECT * FROM cours";
-    $res = $con->query($req);
-    return $res;
+    $response = "SELECT * FROM cours";
+    $response = $con->query($response);
+    return $response;
 }
 
 //Create new post
 
-function CreateNewLesson($title, $content)
+function CreateNewLesson($title, $description, $content)
+{
+    $con = getDBConnexion();
+    $response = $con->prepare("INSERT INTO cours (title, description, content) VALUES (:title,:description, :content)");
+    $response->execute(
+        array(
+            "title" => $title,
+            "description" => $description,
+            "content" => $content,
+        )
+    );
+    return $response;
+}
+// Update
+function UpdateLesson($cours_id, $title, $description, $content)
+{
+    $con = getDBConnexion();
+    $response = $con->prepare("Update cours set title = :title, description = :description, content = :content where cours_id = :cours_id");
+    $response->execute(
+        array(
+            "cours_id" => $cours_id,
+            "title" => $title,
+            "description" => $description,
+            "content" => $content
+        )
+    );
+}
+
+//Delete lesson
+
+function DeleteLesson($id)
 {
     try {
         $con = getDBConnexion();
-        $req = "INSERT INTO cours (title, content) 
-			VALUES ('$title', '$content')";
-        $res = $con->exec($req);
-        return $res;
+        $response = "DELETE from cours where cours_id = '$id'";
+        $response = $con->exec($response);
+        return $response;
     } catch (PDOException $e) {
-        echo $req . "<br>" . $e->getMessage();
+        echo $response . "<br>" . $e->getMessage();
     }
 }
-
-//Create new post
-function UpdateLesson($id, $title, $content)
-{
-    try {
-        $con = getDBConnexion();
-        $req = "UPDATE cours set title = '$title', content = '$content'
-                WHERE cours_id = '$id'";
-        $res = $con->exec($req);
-        return $res;
-    } catch (PDOException $e) {
-        echo $req . "<br>" . $e->getMessage();
-    }
-}
-
-//Delete post
-
-function DeletePost($id)
-{
-    try {
-        $con = getDBConnexion();
-        $req = "DELETE from cours where cours_id = '$id'";
-        $res = $con->exec($req);
-        return $res;
-    } catch (PDOException $e) {
-        echo $req . "<br>" . $e->getMessage();
-    }
-}
-//get new post
-function getNewPost()
+//get new po
+function getNewLesson()
 {
     $lesson['id'] = "";
     $lesson['title'] = "";
     $lesson['content'] = "";
 }
-
-//Search methode
-// function  SearchInPosts($search)
-// {
-//     global $PDO;
-//     $response = $PDO->prepare(
-//         "SELECT post.*, user.nickname "
-//             . "FROM post LEFT JOIN user on (post.user_id = user.id) "
-//             . "WHERE content like :search "
-//             . "ORDER BY post.created_at DESC"
-//     );
-//     $searchWithPercent = "%$search%";
-//     $response->execute(
-//         array(
-//             "search" => $searchWithPercent
-//         )
-//     );
-//     return $response->fetchAll();
-// }

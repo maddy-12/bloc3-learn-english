@@ -30,7 +30,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="../index.php">Home</a>
+                        <img src="../assets/images/Learn_English.png" alt="logo">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.php">Acceuil</a>
                     </li>
                     <!-- Si connecté on affiche -->
                     <?php
@@ -38,26 +41,24 @@
                     if (isset($_SESSION['userId'])) {
                     ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="favorites.php">Mon espace</a>
+                            <a class="nav-link" href="?action=adminPage">Mon espace</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="favorites.php">Cours</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="?action=logout" role="button">Logout</a>
                         </li>
                     <?php
                         //Si non connecté 
+                    } else {
+                    ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?action=displayLogin">Se connecter</a>
+                        </li>
+
+                    <?php
                     }
                     ?>
-
-
-
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit" placeholder="Rechercher...">Rechercher</button>
-                </form>
             </div>
         </div>
     </nav>

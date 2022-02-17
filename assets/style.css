@@ -3,19 +3,17 @@ body, html{
     height: 100%;
 }
 
-.clearfix{
-    clear:both;
-}
-
 body{
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
 }
 
-.mg-top{
-    margin-top: 500px;
+h3{
+    font-size: 50px;
+    font-weight: 500;
 }
+
 /* h1 properties */
 h1 {
   font-size: px;
@@ -24,7 +22,9 @@ h1 {
   margin-top: 40px;
   margin-bottom: 0;
 }
-
+.btn-gold{
+    background-color: #d8b936;
+}
 footer{
         background-color: black;
         width: 100%;
