@@ -26,8 +26,13 @@ include_once('header.php');
                     <textarea name="content" class="form-control" id="content" placeholder="écrivez votre cours"><?= $lesson['content']; ?></textarea>
                 </div>
             </div>
-            <div class="button-submit-div d-flex justify-content-center">
-                <button type="submit" class=" btn btn-dark btn-hover width-btn ">Modifier</button>
+            <div class="d-flex justify-content-center">
+                <div class="button-submit-div d-flex ">
+                    <button type="submit" class=" btn  btn-gold btn-hover width-btn mx-2 ">Modifier</button>
+                </div>
+                <div class="back-btn">
+                    <a class="btn btn-dark width-btn mx-2" href="?action=adminPage">Retour</a>
+                </div>
             </div>
         </form>
     </section>

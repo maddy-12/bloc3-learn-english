@@ -38,6 +38,7 @@ function CreateNewLesson($title, $description, $content)
     );
     return $response;
 }
+
 // Update
 function UpdateLesson($cours_id, $title, $description, $content)
 {

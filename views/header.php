@@ -30,10 +30,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <img src="../assets/images/Learn_English.png" alt="logo">
+                        <img src="../assets/images/Learn_English.png" style="height: 50px; margin-right: 50px;" alt="logo">
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="../index.php">Acceuil</a>
+                    <li class="nav-item align-middle">
+                        <a class="nav-link active " href="?action=display">Accueil</a>
                     </li>
                     <!-- Si connecté on affiche -->
                     <?php
@@ -45,7 +45,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="?action=logout" role="button">Logout</a>
+                            <a class="nav-link" href="?action=logout" role="button">Se déconnecter</a>
                         </li>
                     <?php
                     }

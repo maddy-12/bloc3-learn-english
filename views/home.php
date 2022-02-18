@@ -12,7 +12,7 @@
         if (isset($lessons)) {
             foreach ($lessons as $lesson) { ?>
                 <div class="col-md-4 text-center col-12 card-height ">
-                    <div class="card my-2 pt-3">
+                    <div class="card my-2 pt-3 shadow-sm">
                         <div class="card-body">
                             <h5 class="card-title fw-bold"><?= htmlspecialchars($lesson['title']) ?></h5>
                             <p class="card-text"><?= htmlspecialchars($lesson['description']) ?></p>
