@@ -1,5 +1,5 @@
 <?php
-include_once("api-rest/bdd.php");
+include_once("BDD/bdd.php");
 
 //Get the username & pwd in order to login
 function AdminLogin($username, $password)

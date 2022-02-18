@@ -1,5 +1,5 @@
 <?php
-include_once "api-rest/bdd.php";
+include_once "BDD/bdd.php";
 //Get a post by its ID
 function GetOnePostFromId($id)
 {
