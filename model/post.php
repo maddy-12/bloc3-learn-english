@@ -66,10 +66,3 @@ function DeleteLesson($id)
         echo $response . "<br>" . $e->getMessage();
     }
 }
-//get new po
-function getNewLesson()
-{
-    $lesson['id'] = "";
-    $lesson['title'] = "";
-    $lesson['content'] = "";
-}

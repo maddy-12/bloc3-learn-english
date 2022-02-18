@@ -1,9 +1,9 @@
 <?php
-//include_once('header.php');
+include_once('header.php');
 ?>
 
-<div class="container container-form mg-top">
-    <div class="page-heading text-center">
+<div class="container container-form mg-top margin-b">
+    <div class="page-heading  text-center">
         <h1>SE CONNECTER</h1>
         <span>Bienvenue!</span>
     </div>
@@ -24,7 +24,7 @@
         <!-- Confirmation de mot de passe -->
         <div class="btn-container d-flex justify-content-center">
             <!-- Bouton -->
-            <button type="submit" class="btn btn-form btn-form btn-primary">Se connecter</button>
+            <button type="submit" class="btn btn-form btn-form btn-dark btn-hover width-btn">Se connecter</button>
         </div>
 
     </form>

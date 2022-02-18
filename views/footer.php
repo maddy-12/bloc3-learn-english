@@ -1,7 +1,7 @@
 <div class="bg-footer">
     <footer class="py-3">
         <div class="row text-center align-items-center">
-            <div class="col-4 text-light d-flex justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-12  text-light d-flex justify-content-center">
 
                 <p class="me-2">Nous suivre :</p>
                 <a href="" class="link-light"> <i class="fab fa-facebook-f me-4"></i></a>

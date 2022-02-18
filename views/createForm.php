@@ -27,8 +27,8 @@ include_once('header.php');
                     <textarea name="content" class="form-control" id="content" placeholder="écrivez votre cours"></textarea>
                 </div>
             </div>
-            <div class="button-submit-div d-flex justify-center">
-                <button type="submit" class=" btn btn-outline-success ">Créer</button>
+            <div class="button-submit-div d-flex justify-content-center">
+                <button type="submit" class=" btn btn-dark btn-hover width-btn ">Créer</button>
             </div>
 
         </form>

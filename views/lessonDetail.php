@@ -3,14 +3,16 @@ include_once('header.php');
 ?>
 
 <div class="container">
-    <div class="row">
-        <?php var_dump($lesson) ?>
-        <h2><?php echo $lesson['title']; ?></h2>
-        <div>
+    <div class="row my-5">
+        <h2 class="margin-top text-center"><?php echo $lesson['title']; ?></h2>
+        <div class="my-5">
             <?php echo $lesson['content']; ?>
         </div>
-
+        <div class="back-btn">
+            <a class="btn btn-gold width-btn" href="?action=adminPage">Retour</a>
+        </div>
     </div>
+
 </div>
 </div>
 

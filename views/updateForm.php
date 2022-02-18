@@ -17,7 +17,7 @@ include_once('header.php');
             <div class=" form-group row py-2">
                 <label for="description" class="col-sm-2 col-form-label">Description</label>
                 <div class="col-sm-10">
-                    <textarea name="description" class="form-control" id="description" placeholder="écrivez le description" value="<?= $lesson['description']; ?>"></textarea>
+                    <textarea name="description" class="form-control" id="description" placeholder="écrivez le description" value=""><?= $lesson['description']; ?></textarea>
                 </div>
             </div>
             <div class="form-group row py-2">
@@ -26,8 +26,8 @@ include_once('header.php');
                     <textarea name="content" class="form-control" id="content" placeholder="écrivez votre cours"><?= $lesson['content']; ?></textarea>
                 </div>
             </div>
-            <div class="button-submit-div d-flex justify-center">
-                <button type="submit" class=" btn btn-outline-success ">Modifier</button>
+            <div class="button-submit-div d-flex justify-content-center">
+                <button type="submit" class=" btn btn-dark btn-hover width-btn ">Modifier</button>
             </div>
         </form>
     </section>

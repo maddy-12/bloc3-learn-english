@@ -17,7 +17,7 @@ h3{
 /* h1 properties */
 h1 {
   font-size: px;
-  font-weight: normal;
+  font-weight: 500;
   color: #0f0f0f; /* Golden */
   margin-top: 40px;
   margin-bottom: 0;
@@ -25,11 +25,39 @@ h1 {
 .btn-gold{
     background-color: #d8b936;
 }
+
+.btn-gold:hover{
+    background-color: #0f0f0f;
+    color:#d8b936;
+}
+.width-btn{
+    width: 200px;
+    margin-bottom: 50px;
+}
+.bottom{
+    bottom: 1px;
+}
+.margin-top{
+    margin-top: 100px;
+}
+.page-heading{
+    margin-top: 150px;
+}
+.margin-b{
+    margin-bottom: 244px;
+}
+.btn-hover:hover{
+    color: #0f0f0f;
+    background-color:#d8b936;
+    border:none;
+}
+.card-height{
+    height: 280px;
+}
 footer{
-        background-color: black;
-        width: 100%;
-        position: fixed; 
-        bottom: 0px;
+    background-color: black;
+    width: 100%;
+    bottom: 0px;
 }
 
 /* LOGIN START */

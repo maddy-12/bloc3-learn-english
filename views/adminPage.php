@@ -7,21 +7,24 @@
             <span>Learn from the best !</span>
         </div>
     </div>
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-end my-5">
         <a href="index.php?action=displayCreateForm" class="btn btn-gold">Créer un cours</a>
     </div>
     <div class="row my-5">
         <?php
         if (isset($lessons)) {
             foreach ($lessons as $lesson) { ?>
-                <div class="col-md-4 col-12">
-                    <div class="card my-2" style="height:300px;">
+                <div class="col-md-4 col-12 text-center">
+                    <div class="card  my-2 shadow-sm card-height pt-3">
                         <div class="card-body">
-                            <h3 class="card-title"><?= utf8_encode($lesson['title']) ?></h3>
-                            <p class="card-text"><?= utf8_encode($lesson['description']) ?></p>
-                            <a href="index.php?action=lessonDetail&amp;id=<?= $lesson['cours_id'] ?>" class="btn btn-primary">Lire</a>
-                            <a href="index.php?action=getLessonById&amp;id=<?= $lesson['cours_id'] ?>" class="btn btn-primary">Modifier</a>
-                            <a href="index.php?action=delete&amp;id=<?= $lesson['cours_id'] ?>" class="btn btn-danger">Supprimer</a>
+                            <h5 class="card-title fw-bold"><?= htmlspecialchars($lesson['title']) ?></h5>
+                            <p class="card-text"><?= htmlspecialchars($lesson['description']); ?></p>
+                            <div class="bottom">
+                                <a href="index.php?action=lessonDetail&amp;id=<?= htmlspecialchars($lesson['cours_id']); ?> " class="btn btn-dark btn-hover">Lire</a>
+                                <a href="index.php?action=getLessonById&amp;id=<?= ($lesson['cours_id']); ?>" class="btn btn-dark btn-hover">Modifier</a>
+                                <a href="index.php?action=delete&amp;id=<?= ($lesson['cours_id']); ?>" class="btn btn-danger">Supprimer</a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
