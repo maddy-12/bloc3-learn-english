@@ -21,7 +21,6 @@ include_once('header.php');
             <input name="password" type="password" class="form-control  input-form" required="">
         </div>
 
-        <!-- Confirmation de mot de passe -->
         <div class="btn-container d-flex justify-content-center">
             <!-- Bouton -->
             <button type="submit" class="btn btn-form btn-form btn-dark btn-hover width-btn">Se connecter</button>

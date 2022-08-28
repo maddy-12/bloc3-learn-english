@@ -12,12 +12,27 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/style.css">
 
+    <!-- summernote -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+
+
     <!-- script -->
     <!-- Option 1: Bootstrap Bundle with Popper -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+    <!-- alert when deleting -->
+    <script language="JavaScript" type="text/javascript">
+        function checkDelete() {
+            return confirm('Etes vous sûre de vouloir supprimer ce cours ?');
+        }
+    </script>
+
+
     <title>LEARN ENGLISH</title>
+
+
 </head>
 
 <body>
@@ -35,6 +50,7 @@
                     <li class="nav-item align-middle">
                         <a class="nav-link active " href="?action=display">Accueil</a>
                     </li>
+
                     <!-- Si connecté on affiche -->
                     <?php
 
@@ -52,5 +68,9 @@
                     ?>
                 </ul>
             </div>
+            <form class="d-flex" role="search" method="get">
+                <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn  search-btn" type="submit">Rechercher</button>
+            </form>
         </div>
     </nav>

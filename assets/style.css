@@ -41,7 +41,7 @@ h1 {
     margin-top: 100px;
 }
 .page-heading{
-    margin-top: 150px;
+    margin-top: 100px;
 }
 .margin-b{
     margin-bottom: 244px;
@@ -52,7 +52,19 @@ h1 {
     border:none;
 }
 .card-height{
-    height: 280px;
+    height: 267px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+.search-btn{
+    color: #d8b936;
+    border: #d8b936 1px solid;
+}
+
+.search-btn:hover{
+    color: #fff;
+    background-color: #d8b936;
+    border: #d8b936 1px solid;
 }
 footer{
     background-color: black;

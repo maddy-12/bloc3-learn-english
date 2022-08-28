@@ -24,7 +24,7 @@ include_once('header.php');
             <div class="form-group row py-2">
                 <label for="content" class="col-sm-2 col-form-label">Contenu</label>
                 <div class="col-sm-10">
-                    <textarea name="content" class="form-control" id="content" placeholder="écrivez votre cours"></textarea>
+                    <textarea name="content" class="form-control summernote" id="content" placeholder="écrivez votre cours"></textarea>
                 </div>
             </div>
             <div class="d-flex justify-content-center">

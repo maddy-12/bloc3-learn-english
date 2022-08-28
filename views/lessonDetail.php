@@ -8,6 +8,7 @@ include_once('header.php');
         <div class="my-5">
             <?php echo $lesson['content']; ?>
         </div>
+
         <div class="back-btn">
             <a class="btn btn-gold width-btn" href="?action=adminPage">Retour</a>
         </div>

@@ -1,7 +1,7 @@
 <?php
 include_once "BDD/bdd.php";
 //Get a post by its ID
-function GetOnePostFromId($id)
+function GetOneLessonFromId($id)
 {
     $con = getDBConnexion();
     $response = "SELECT * from cours where cours_id = '$id' ";
@@ -66,4 +66,20 @@ function DeleteLesson($id)
     } catch (PDOException $e) {
         echo $response . "<br>" . $e->getMessage();
     }
+}
+
+//Search methode
+function  SearchLessons($search)
+{
+    $con = getDBConnexion();
+    $response = $con->prepare(
+        "SELECT * FROM cours WHERE content like :search "
+    );
+    $searchWithPercent = "%$search%";
+    $response->execute(
+        array(
+            "search" => $searchWithPercent
+        )
+    );
+    return $response->fetchAll();
 }

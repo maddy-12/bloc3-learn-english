@@ -22,7 +22,7 @@
                             <div class="bottom">
                                 <a href="index.php?action=lessonDetail&amp;id=<?= htmlspecialchars($lesson['cours_id']); ?> " class="btn btn-dark btn-hover">Lire</a>
                                 <a href="index.php?action=getLessonById&amp;id=<?= ($lesson['cours_id']); ?>" class="btn btn-dark btn-hover">Modifier</a>
-                                <a href="index.php?action=delete&amp;id=<?= ($lesson['cours_id']); ?>" class="btn btn-danger">Supprimer</a>
+                                <a href="index.php?action=delete&amp;id=<?= ($lesson['cours_id']); ?>" onclick="return checkDelete()" class="btn btn-danger">Supprimer</a>
                             </div>
 
                         </div>

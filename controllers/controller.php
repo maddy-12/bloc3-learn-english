@@ -19,7 +19,7 @@ switch ($action) {
                 var_dump($_SESSION['userId']);
                 header('Location: ?action=display');
             } else {
-                $errorMsg = "Wrong login and/or password.";
+                $errorMsg = "Identifiants ou mot de passe incorrectes";
                 header('Location: ?action=displayLogin');
             }
         } else {
@@ -35,79 +35,95 @@ switch ($action) {
             unset($_SESSION['userId']);
             session_destroy();
         }
-        header('Location: ?action=displayLogin');
+        header('Location: ?action=home');
 
         break;
 
         ///////////////Create a new post/////////
     case 'displayCreateForm':
-        include_once "views/createForm.php";
+        if (isset($_SESSION['userId'])) {
+            include_once "views/createForm.php";
+        } else {
+            header('Location: ?action=home');
+        }
+
         break;
     case 'create':
-
         if (isset($_SESSION['userId'])) {
+            if (isset($_SESSION['userId'])) {
 
-            CreateNewLesson($_POST['title'], $_POST['description'], $_POST['content']);
+                CreateNewLesson($_POST['title'], $_POST['description'], $_POST['content']);
+            } else {
+                $errorMsg = "Votre cours n'a pas pu être créer, veuillez réessayer";
+            }
+            header('Location: ?action=adminPage');
         } else {
-            $errorMsg = "Votre cours n'a pas pu être créer, veuillez réessayer";
+            header('Location: ?action=home');
         }
-        header('Location: ?action=adminPage');
         break;
         /////// Get Lesson by ID bouton modifier du formulaire///
     case "getLessonById":
-        $lesson = GetOnePostFromId($_GET['id']);
-        include "views/updateForm.php";
+        if (isset($_SESSION['userId'])) {
+            $lesson = GetOneLessonFromId($_GET['id']);
+            include "views/updateForm.php";
+        } else {
+            header('Location: ?action=home');
+        }
+
         break;
 
         ////// update bouton modifier du card //////////
     case 'updateLesson':
-        if (isset($_POST['title'])) {
-            if (UpdateLesson($_GET['id'], $_POST['title'], $_POST['description'], $_POST['content'])) {
-                $SuccessMsg = "C'est ok";
-            } else {
-                $errorMsg = "oups!";
+
+        if (isset($_SESSION['userId'])) {
+            if (isset($_POST['title'])) {
+                if (UpdateLesson($_GET['id'], $_POST['title'], $_POST['description'], $_POST['content'])) {
+                    echo ($SuccessMsg = "Les modification ont été enregistrer");
+                } else {
+                    echo ($errorMsg = "oups! une erreur est survenue");
+                }
             }
+            header('Location: ?action=adminPage');
+        } else {
+            header('Location: ?action=home');
         }
-        header('Location: ?action=adminPage');
+
         break;
         ////// Liste des card pour admin /////:
     case 'adminPage':
-        $lessons = GetAllLessons();
-        include('views/adminPage.php');
+        if (isset($_SESSION['userId'])) {
+            $lessons = GetAllLessons();
+            include('views/adminPage.php');
+        } else {
+            header('Location: ?action=home');
+        }
+
         break;
 
         ////////////// détail/contenu du cours///////////////
     case 'lessonDetail':
-        $lesson = GetOnePostFromId($_GET['id']);
+        $lesson = GetOneLessonFromId($_GET['id']);
         require('views/lessonDetail.php');
         break;
 
         //////////////Delete ////////////
     case 'delete':
-        DeleteLesson($_GET['id']);
-        header('Location: ?action=adminPage');
+        if (isset($_SESSION['userId'])) {
+            DeleteLesson($_GET['id']);
+            header('Location: ?action=adminPage');
+        } else {
+            header('Location: ?action=home');
+        }
+
         break;
         //////////////Default display/////////////
     case 'display':
     default:
         $lessons = GetAllLessons();
-        require('views/home.php');
-
         ////// Search //////////
-        // if (isset($_GET["search"])) {
-        //     $lessons = SearchInPosts($_GET["search"]);
-        // } else {
-        //     $lessons = GetAllPosts();
-        // }
-
-        // include_once "../models/CommentManager.php";
-        // $comments = array();
-
-        // foreach ($lessons as $onePost) {
-        //     $idPost = $onePost['id'];
-        //     $comments[$idPost] = GetAllCommentsFromPostId($idPost);
-        // }
-
-        // include_once "../views/DisplayPosts.php";
-        // break;
+        if (isset($_GET["search"])) {
+            $lessons = SearchLessons($_GET["search"]);
+        }
+        require("views/home.php");
+        break;
 }

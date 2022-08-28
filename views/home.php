@@ -9,10 +9,10 @@
     </div>
     <div class="row my-5">
         <?php
-        if (isset($lessons)) {
+        if (!empty($lessons)) {
             foreach ($lessons as $lesson) { ?>
-                <div class="col-md-4 text-center col-12 card-height ">
-                    <div class="card my-2 pt-3 shadow-sm">
+                <div class="col-md-4 text-center col-12">
+                    <div class="card shadow-sm card-height">
                         <div class="card-body">
                             <h5 class="card-title fw-bold"><?= htmlspecialchars($lesson['title']) ?></h5>
                             <p class="card-text"><?= htmlspecialchars($lesson['description']) ?></p>
@@ -25,7 +25,7 @@
             ?>
     </div>
     <div class="text-center">
-        <p class="alert alert-warning"> Il n'ya pas encore de cours </p>
+        <p class="alert alert-warning"> Nous n'avons pas réussi à trouver ce que vous recherchez </p>
     </div>
 <?php
         }
